@@ -44,9 +44,9 @@ export class LoginComponent extends FormularioGenericoService implements OnInit 
     this.post(Endpoints.getEndpointUsuarios().login, form.value)
       .subscribe((response: any) => {
         this.processando = false;
+        this.dialogRef.close();
         this.mensagemService.sucesso('Você foi logado com sucesso', 'fechar', 5000);
         this.storageService.setTokenUsuario(response.token);
-        this.dialogRef.close();
         window.location.reload();
       }, error => {
         this.processando = false;

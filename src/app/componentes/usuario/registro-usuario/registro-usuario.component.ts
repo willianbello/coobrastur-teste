@@ -4,6 +4,8 @@ import {HttpClient} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
 import {Cliente} from "../../../shared/models/Cliente";
 import {Location} from "@angular/common";
+import {Endpoints} from "../../../shared/generico/Endpoints";
+import {MensagemService} from "../../../shared/services/mensagem.service";
 
 @Component({
   selector: 'app-registro-usuario',
@@ -16,7 +18,8 @@ export class RegistroUsuarioComponent extends FormularioGenericoService implemen
 
   constructor(
     http: HttpClient,
-    private location: Location
+    private location: Location,
+    private mensagemService: MensagemService
   ) {
     super(http);
     this.parametrosGenericos.cabecalho = true;
@@ -33,6 +36,16 @@ export class RegistroUsuarioComponent extends FormularioGenericoService implemen
   onSubmit(form: NgForm) {
     if (form.invalid) return;
     this.processando = true;
+
+    this.post(Endpoints.getEndpointUsuarios().post, form.value)
+      .subscribe((cliente: Cliente) => {
+        this.processando = false;
+        this.mensagemService.sucesso('Cliente Cadastrado com Sucesso', 'fechar', 5000);
+        form.reset();
+      }, error => {
+        this.mensagemService.geral('Erro',
+          'Não foi possível registrar o usuário, verifique se os campos estão corretos');
+      })
   }
 
   voltar() {

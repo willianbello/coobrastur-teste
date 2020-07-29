@@ -5,7 +5,7 @@ export class Paginacao {
   page: number;
   per_page: number;
   total: number;
-  total_pages: 2;
+  total_pages: number;
   data: Array<Usuario>;
   ad = new Ad();
 }

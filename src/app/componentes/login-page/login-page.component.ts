@@ -13,7 +13,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loginservice.telaLogin();
+    this.loginservice.telaLogin('450px');
   }
 
 }
