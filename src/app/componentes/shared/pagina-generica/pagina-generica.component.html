@@ -1,4 +1,4 @@
-<app-cabecalho></app-cabecalho>
+<app-cabecalho *ngIf="parametros.cabecalho" [botao]="parametros.botaoAdicionar"></app-cabecalho>
 <div class="mt-70 container" fxLayoutGap="10%" fxLayout="row">
   <div></div>
   <div  class="w-100">
@@ -12,5 +12,5 @@
 </div>
 <div class="mt-50 container" fxLayoutGap="10%" fxLayout="row">
   <div></div>
-  <slot></slot>
+  <ng-content></ng-content>
 </div>

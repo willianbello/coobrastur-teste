@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from "./material/material.module";
 import {SharedModule} from "./shared/shared.module";
-import { LoginPageComponent } from './componentes/login-page/login-page.component';
-import { LoginComponent } from './componentes/shared/login/login.component';
-import { CabecalhoComponent } from './componentes/shared/cabecalho/cabecalho.component';
-import { PaginaGenericaComponent } from './componentes/shared/pagina-generica/pagina-generica.component';
+
+import { ListaUsuariosComponent } from './componentes/usuario/lista-usuarios/lista-usuarios.component';
+import { RegistroUsuarioComponent } from './componentes/usuario/registro-usuario/registro-usuario.component';
+import {LoginPageComponent} from "./componentes/login-page/login-page.component";
+import {LoginComponent} from "./componentes/shared/login/login.component";
+import { UsuarioCardComponent } from './componentes/usuario/usuario-card/usuario-card.component';
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -17,8 +20,9 @@ import { PaginaGenericaComponent } from './componentes/shared/pagina-generica/pa
     AppComponent,
     LoginPageComponent,
     LoginComponent,
-    CabecalhoComponent,
-    PaginaGenericaComponent
+    ListaUsuariosComponent,
+    RegistroUsuarioComponent,
+    UsuarioCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +30,7 @@ import { PaginaGenericaComponent } from './componentes/shared/pagina-generica/pa
     BrowserAnimationsModule,
     MaterialModule,
     SharedModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

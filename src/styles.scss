@@ -13,7 +13,7 @@ html, body { height: 100%; width: 100%; background-color: $fundo }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; height: 100%; width: 100% }
 
 .fs-18 {
-  font-size: 18px;
+  font-size: 18px !important;
 }
 
 .modalfundo-transparente {
@@ -41,7 +41,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; height: 100
 }
 
 .w-100 {
-  width: 100%;
+  width: 100% !important;
 }
 
 .cabecalho {
@@ -85,4 +85,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; height: 100
 }
 .hr {
   border: 1px solid $hr !important;
+}
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+  background-color: $tema;
+}
+.pl-45 {
+  padding-left: 45px !important;
+}
+.pr-45 {
+  padding-right: 45px !important;
+}
+button.mat-primary.custom-primary {
+  border: 1px solid $tema;
+}
+button.mat-primary.custom-primary:hover {
+  background-color: $tema;
+  color: white;
+  transition: 0.4s;
+}
+.mat-card {
+  border: 1px solid $hr;
+  box-shadow: none !important;
 }

@@ -1,0 +1,13 @@
+<mat-card>
+  <div fxLayout="row wrap" fxLayoutAlign="start center">
+    <div fxFlex="30">
+      <img [src]="usuario.avatar ? usuario.avatar : '/assets/imagens/avatar.png'" alt="avatar">
+    </div>
+    <div fxFlex="50">
+      <h5 class="fs-18 mb-0">{{ usuario.email }}</h5>
+    </div>
+    <div fxFlex="20">
+      <button mat-stroked-button color="primary" class="pl-45 pr-45 custom-primary">Editar</button>
+    </div>
+  </div>
+</mat-card>
