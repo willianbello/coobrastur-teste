@@ -6,6 +6,7 @@ import {Endpoints} from "../../../shared/generico/Endpoints";
 import {LoginRegistro} from "../../../shared/models/LoginRegistro";
 import {MatDialogRef} from "@angular/material/dialog";
 import {StorageService} from "../../../shared/services/storage.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -19,9 +20,14 @@ export class LoginComponent extends FormularioGenericoService implements OnInit 
   constructor(
     httpCliente: HttpClient,
     public dialogRef: MatDialogRef<LoginComponent>,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private router: Router
   ) {
     super(httpCliente);
+    if (storageService.getTokenUsuario()) {
+      this.router.navigate(['/lista-usuarios']);
+      this.dialogRef.close();
+    }
   }
 
   ngOnInit(): void {

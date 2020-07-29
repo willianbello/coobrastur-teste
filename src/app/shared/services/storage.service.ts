@@ -17,4 +17,8 @@ export class StorageService {
   getTokenUsuario() {
     return localStorage.getItem('token');
   }
+
+  deleteTokenUsuario() {
+    return localStorage.removeItem('token');
+  }
 }

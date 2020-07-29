@@ -16,8 +16,8 @@
       <mat-form-field appearance="outline" fxFlex="100">
         <mat-label>Senha</mat-label>
         <input matInput [(ngModel)]="loginRegistro.password" type="password" name="password" autocomplete="off"
-               required placeholder="Email" #email="ngModel" matTooltip="Insira uma senha">
-        <mat-error *ngIf="email.hasError('required')">A senha é obrigatória</mat-error>
+               required placeholder="Email" #password="ngModel" matTooltip="Insira uma senha">
+        <mat-error *ngIf="password.hasError('required')">A senha é obrigatória</mat-error>
       </mat-form-field>
     </div>
 

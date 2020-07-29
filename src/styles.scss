@@ -19,13 +19,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; height: 100
 .modalfundo-transparente {
   background-color: rgba(205, 205, 205, 0.10);
   opacity: 1.0 !important;
+  width: 450px !important;
 }
 .cdk-overlay-pane {
-  width: 450px !important;
+
+}
+.editar-usuario{
+    width: 600px !important;
 }
 .mat-dialog-container {
   box-shadow: 0px 0px 1px black;
-  border: none !important;
+  border: 0 !important;
 }
 .mat-progress-bar {
   margin-left: -25px;
@@ -43,9 +47,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; height: 100
 .w-100 {
   width: 100% !important;
 }
-
+.br-100 {
+  border-radius: 100%;
+}
 .cabecalho {
   padding: 0 100px;
+}
+.mr-8 {
+  margin-right: 8px;
 }
 .mr-25 {
   margin-right: 25px !important;
@@ -55,6 +64,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; height: 100
 }
 .mt-50 {
   margin-top: 50px;
+}
+mt-0 {
+  margin-top: 0px;
 }
 .mt-70 {
   margin-top: 70px;
@@ -119,4 +131,15 @@ button.mat-primary.custom-primary:disabled {
 }
 .spinner-para-botao {
   display: inline-block !important;
+}
+
+@media(max-width: 959px) {
+  .container {
+    width: 80%;
+  }
+}
+@media(max-width: 863px) {
+  .container {
+    width: 90%;
+  }
 }

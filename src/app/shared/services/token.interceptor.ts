@@ -29,7 +29,6 @@ export class TokenInterceptor implements HttpInterceptor {
       urlFinal = '';
     }
 
-    console.log(request.url)
     if (token) {
       let headers = new HttpHeaders();
       headers = headers.append('Authorization', `Bearer ${token}`);
@@ -37,8 +36,12 @@ export class TokenInterceptor implements HttpInterceptor {
         headers
       });
       return next.handle(requisicao);
+
     } else if(urlFinal !== 'login') {
+
+      this.storageService.deleteTokenUsuario();
       this.loginservice.telaLogin('auto', '');
+
       return EMPTY;
     }
     return next.handle(request);

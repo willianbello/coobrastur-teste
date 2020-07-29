@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Usuario} from "../../../shared/models/Usuario";
 
 @Component({
@@ -9,10 +9,15 @@ import {Usuario} from "../../../shared/models/Usuario";
 export class UsuarioCardComponent implements OnInit {
 
   @Input() usuario: Usuario;
+  @Output() editar = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  abrirEdicao() {
+    this.editar.emit(this.usuario);
   }
 
 }

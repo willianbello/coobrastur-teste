@@ -3,6 +3,9 @@ import {FormularioGenericoService} from "../../../shared/generico/FormularioGene
 import {HttpClient} from "@angular/common/http";
 import {Endpoints} from "../../../shared/generico/Endpoints";
 import {Paginacao} from "../../../shared/models/Paginacao";
+import {MatDialog} from "@angular/material/dialog";
+import {UsuarioEditComponent} from "../usuario-edit/usuario-edit.component";
+import {Usuario} from "../../../shared/models/Usuario";
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -13,7 +16,10 @@ export class ListaUsuariosComponent extends FormularioGenericoService implements
 
   paginacao: Paginacao = new Paginacao();
 
-  constructor(http: HttpClient) {
+  constructor(
+    http: HttpClient,
+    public dialog: MatDialog
+  ) {
     super(http);
     this.parametrosGenericos.titulo = 'Painel de clientes';
     this.parametrosGenericos.icone = 'face';
@@ -28,6 +34,10 @@ export class ListaUsuariosComponent extends FormularioGenericoService implements
       .subscribe((paginacao: Paginacao) => {
         this.paginacao = paginacao;
       })
+  }
+
+  editar(usuario: Usuario) {
+    this.dialog.open(UsuarioEditComponent, {  width: '80%', data: usuario });
   }
 
 }

@@ -1,0 +1,50 @@
+<div class="container-login">
+  <mat-progress-bar mode="indeterminate" *ngIf="processando"></mat-progress-bar>
+  <form (ngSubmit)="onSubmit(formUser)"  #formUser="ngForm">
+    <div fxLayout="row" fxLayout.md="column" fxLayout.sm="column" fxLayout.xs="column"
+         fxLayoutAlign.lg="center center" fxLayoutAlign.xl="center center" fxLayout.xl="row">
+      <div fxFlex="auto" fxFlexAlign="center">
+        <img [src]="usuario.avatar ? usuario.avatar : '/asset/imagens/avatar-editar.png'"
+             alt="avatar" class="br-100 mr-8">
+      </div>
+      <div fxFlex="85">
+        <div fxLayout="row" fxLayout.md="column" fxLayout.sm="column" fxLayout.xs="column">
+
+          <mat-form-field appearance="outline" fxFlex="auto" fxFlex.sm="100" class="mr-8"
+                          matTooltip="Insira um Email válido" matTooltipPosition="above">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="usuario.email" type="email" name="email" autocomplete="off"
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                   required placeholder="Email" #email="ngModel">
+            <mat-error *ngIf="email.hasError('required')">O email é obrigatório</mat-error>
+            <mat-error *ngIf="email.hasError('pattern')">O email precisa ser válido</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" fxFlex="auto" class="mr-8"
+                          matTooltip="Insira seu primeiro nome" matTooltipPosition="above">
+            <mat-label>Nome</mat-label>
+            <input matInput [(ngModel)]="usuario.first_name" type="text" name="first_name" autocomplete="off"
+                   required placeholder="Nome" #name="ngModel">
+            <mat-error *ngIf="name.hasError('required')">o nome é obrigatório</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" fxFlex="auto" class="mr-8"
+                          matTooltip="Insira seu sobrenome" matTooltipPosition="above">
+            <mat-label>Sobrenome</mat-label>
+            <input matInput [(ngModel)]="usuario.last_name" type="text" name="last_name" autocomplete="off"
+                   required placeholder="Nome" #last_name="ngModel">
+            <mat-error *ngIf="last_name.hasError('required')">o sobrenome é obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="8px" fxLayout.sm="column" fxLayout.xs="column">
+      <button type="submit" mat-flat-button color="primary"
+              [disabled]="formUser.invalid || processando" fxFlex="10">Salvar</button>
+      <button type="button" mat-stroked-button color="warn"
+              [disabled]="formUser.invalid || processando" (click)="fechar()" fxFlex="10">Cancelar</button>
+    </div>
+  </form>
+</div>

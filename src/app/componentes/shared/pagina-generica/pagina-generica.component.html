@@ -1,5 +1,6 @@
 <app-cabecalho *ngIf="parametros.cabecalho" [botao]="parametros.botaoAdicionar"></app-cabecalho>
-<div class="mt-70 container" fxLayoutGap="10%" fxLayout="row">
+<div class="mt-70 container" fxLayoutGap="10%" fxLayoutGap.sm="10%"
+     fxLayoutGap.xs="10%" fxLayout="row">
   <div></div>
   <div  class="w-100">
     <h2 *ngIf="parametros.titulo" fxLayoutAlign="start center" class="mb-0">
@@ -10,7 +11,8 @@
     <p *ngIf="parametros.descricao" class="descricao">{{ parametros.descricao }}</p>
   </div>
 </div>
-<div class="mt-50 container" fxLayoutGap="10%" fxLayout="row">
-  <div></div>
+<div class="mt-50 container" fxLayoutGap="10%" fxLayoutGap.sm="10%"
+     fxLayoutGap.xs="10%" fxLayout="row">
+  <div fxLayoutGap.sm="0"></div>
   <ng-content></ng-content>
 </div>
