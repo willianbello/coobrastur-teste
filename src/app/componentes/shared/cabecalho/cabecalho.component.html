@@ -2,10 +2,10 @@
   <h1 class="w-100 cabecalho" fxLayout="row wrap" fxLayoutAlign="space-between center">
     <img src="/assets/imagens/coobrastur_logo.png" class="logo" alt="coobrastur">
     <div fxLayout="row" class="mt-0">
-      <button *ngIf="botao.botaoAdicionarVisibilidade" mat-flat-button class="mr-25">
+      <button (click)="adicionarCliente()" *ngIf="botao.botaoAdicionarVisibilidade" mat-flat-button class="mr-25">
         <mat-icon>add</mat-icon> {{ botao.botaoAdicionarNome }}
       </button>
-      <button mat-button>
+      <button mat-button (click)="deslogar()">
         <mat-icon>login</mat-icon> Sair
       </button>
     </div>

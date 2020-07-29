@@ -13,6 +13,7 @@ import {LoginPageComponent} from "./componentes/login-page/login-page.component"
 import {LoginComponent} from "./componentes/shared/login/login.component";
 import { UsuarioCardComponent } from './componentes/usuario/usuario-card/usuario-card.component';
 import { UsuarioEditComponent } from './componentes/usuario/usuario-edit/usuario-edit.component';
+import { MensagemComponent } from './componentes/shared/mensagem/mensagem.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { UsuarioEditComponent } from './componentes/usuario/usuario-edit/usuario
     RegistroUsuarioComponent,
     UsuarioCardComponent,
     UsuarioEditComponent,
+    MensagemComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,13 +9,15 @@ import {EMPTY, Observable} from 'rxjs';
 import {StorageService} from "./storage.service";
 import {environment} from "../../../environments/environment";
 import {LoginService} from "./login.service";
+import {MensagemService} from "./mensagem.service";
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
   constructor(
     private storageService: StorageService,
-    private loginservice: LoginService
+    private loginservice: LoginService,
+    private mensagemService: MensagemService,
   ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
@@ -41,6 +43,8 @@ export class TokenInterceptor implements HttpInterceptor {
 
       this.storageService.deleteTokenUsuario();
       this.loginservice.telaLogin('auto', '');
+      this.mensagemService.geral('Erro',
+        'Você não esta logado. Entre com login e senha para acessar a página');
 
       return EMPTY;
     }

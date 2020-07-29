@@ -5,6 +5,7 @@ import {FormularioGenericoService} from "../../../shared/generico/FormularioGene
 import {HttpClient} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
 import {Endpoints} from "../../../shared/generico/Endpoints";
+import {MensagemService} from "../../../shared/services/mensagem.service";
 
 
 @Component({
@@ -19,7 +20,8 @@ export class UsuarioEditComponent extends FormularioGenericoService implements O
   constructor(
     public dialogRef: MatDialogRef<UsuarioEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Usuario,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private mensagemService: MensagemService
   ) {
     super(httpClient);
     this.usuario = new Usuario();
@@ -41,7 +43,10 @@ export class UsuarioEditComponent extends FormularioGenericoService implements O
     this.processando = true;
     this.post(Endpoints.getEndpointUsuarios(this.usuario.id).update, form.value)
       .subscribe(response => {
-
+        this.mensagemService.sucesso('Atualizado com sucesso', 'fechar', 5000);
+        this.dialogRef.close();
+      }, error => {
+        this.mensagemService.geral('Erro', 'Não foi possível atualizar o usuário');
       });
   }
 

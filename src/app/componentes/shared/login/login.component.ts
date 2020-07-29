@@ -7,6 +7,7 @@ import {LoginRegistro} from "../../../shared/models/LoginRegistro";
 import {MatDialogRef} from "@angular/material/dialog";
 import {StorageService} from "../../../shared/services/storage.service";
 import {Router} from "@angular/router";
+import {MensagemService} from "../../../shared/services/mensagem.service";
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent extends FormularioGenericoService implements OnInit 
     httpCliente: HttpClient,
     public dialogRef: MatDialogRef<LoginComponent>,
     private storageService: StorageService,
-    private router: Router
+    private router: Router,
+    private mensagemService: MensagemService
   ) {
     super(httpCliente);
     if (storageService.getTokenUsuario()) {
@@ -42,12 +44,14 @@ export class LoginComponent extends FormularioGenericoService implements OnInit 
     this.post(Endpoints.getEndpointUsuarios().login, form.value)
       .subscribe((response: any) => {
         this.processando = false;
+        this.mensagemService.sucesso('Você foi logado com sucesso', 'fechar', 5000);
         this.storageService.setTokenUsuario(response.token);
         this.dialogRef.close();
         window.location.reload();
       }, error => {
         this.processando = false;
-
+        this.mensagemService.geral('Erro',
+          'falha ao tentar realizar o login, verifique se o usuario e senha estão corretos');
       })
   }
 

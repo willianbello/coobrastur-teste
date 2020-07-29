@@ -9,6 +9,7 @@ import {LoginService} from "../../shared/services/login.service";
 export class LoginPageComponent implements OnInit {
 
   constructor(private loginservice: LoginService) {
+    this.loginservice.telaLogin();
   }
 
   ngOnInit(): void {
