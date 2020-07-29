@@ -4,7 +4,7 @@ export class Endpoints {
 
   static endpoint: Endpoint;
 
-  static getEndpointUsuarios(id: number) {
+  static getEndpointUsuarios(id?: number) {
     this.endpoint = new Endpoint();
     this.endpoint.post = 'users';
     this.endpoint.getList = 'users';

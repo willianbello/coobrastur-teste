@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {FormularioGenericoService} from "../../shared/generico/FormularioGenericoService";
+import {HttpClient} from "@angular/common/http";
+import {FormGroup} from "@angular/forms";
+import {LoginService} from "../../shared/services/login.service";
 
 @Component({
   selector: 'app-login-page',
@@ -7,9 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginservice: LoginService) {
+  }
 
   ngOnInit(): void {
+    this.loginservice.telaLogin();
   }
 
 }

@@ -1,7 +1,29 @@
-<div>
-  <form (ngSubmit)="salvar(formLogin)"  #formLogin="ngForm">
-    <div fxLayout="row">
+<div class="container-login">
+  <mat-progress-bar mode="indeterminate" *ngIf="processando"></mat-progress-bar>
+  <form (ngSubmit)="onSubmit(formLogin)"  #formLogin="ngForm">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+      <mat-form-field appearance="outline" fxFlex="100">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="login.email" type="email" name="email" autocomplete="off"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" matTooltip="Insira um Email válido"
+               required placeholder="Email" #email="ngModel">
+        <mat-error *ngIf="email.hasError('required')">O email é obrigatório</mat-error>
+        <mat-error *ngIf="email.hasError('pattern')">O email precisa ser válido</mat-error>
+      </mat-form-field>
+    </div>
 
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+      <mat-form-field appearance="outline" fxFlex="100">
+        <mat-label>Senha</mat-label>
+        <input matInput [(ngModel)]="login.password" type="password" name="senha" autocomplete="off"
+               required placeholder="Email" #email="ngModel" matTooltip="Insira uma senha">
+        <mat-error *ngIf="email.hasError('required')">A senha é obrigatória</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+      <button type="submit" mat-flat-button color="primary"
+              [disabled]="formLogin.invalid || processando" fxFlex="100">ACESSAR O SISTEMA</button>
     </div>
   </form>
 </div>

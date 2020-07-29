@@ -8,19 +8,22 @@ import {MaterialModule} from "./material/material.module";
 import {SharedModule} from "./shared/shared.module";
 import { LoginPageComponent } from './componentes/login-page/login-page.component';
 import { LoginComponent } from './componentes/shared/login/login.component';
+import { CabecalhoComponent } from './componentes/shared/cabecalho/cabecalho.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    LoginComponent
+    LoginComponent,
+    CabecalhoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
