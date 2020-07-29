@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
 
+## Video DEMO
+<a href="https://www.loom.com/share/5d8f4d7de2944477b1c5d2010cd1feee">Video no Loom</a>
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
