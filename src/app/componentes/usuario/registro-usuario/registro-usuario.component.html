@@ -1,1 +1,42 @@
-<p>registro-usuario works!</p>
+<app-pagina-generica [parametros]="parametrosGenericos">
+  <div class="form-registro">
+
+    <div class="container-login">
+      <form (ngSubmit)="onSubmit(formRegistro)"  #formRegistro="ngForm">
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="mb-20">
+          <mat-form-field appearance="outline" fxFlex="100"
+                          matTooltip="Digite um Nome" matTooltipPosition="above">
+            <mat-label>Nome</mat-label>
+            <input matInput [disabled]="processando" [(ngModel)]="cliente.name" type="text" name="name" autocomplete="off"
+                   required placeholder="Nome" #name="ngModel">
+            <mat-error *ngIf="name.hasError('required')">O nome é obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="mb-20">
+          <mat-form-field appearance="outline" fxFlex="100"
+                          matTooltip="Insira uma profissão" matTooltipPosition="above">
+            <mat-label>Profissão</mat-label>
+            <input matInput [disabled]="processando" [(ngModel)]="cliente.job" type="text" name="job" autocomplete="off"
+                   required placeholder="Profissão" #job="ngModel">
+            <mat-error *ngIf="job.hasError('required')">A profissão é obrigatória</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+          <button type="submit" mat-flat-button color="primary" class="mr-25"
+                  [disabled]="formRegistro.invalid || processando" fxFlex="30">
+            Cadastrar
+            <mat-progress-spinner class="spinner-para-botao" diameter="25"
+                                  *ngIf="processando" mode="indeterminate">
+            </mat-progress-spinner>
+
+          </button>
+          <button type="button" mat-stroked-button color="primary" class="mr-25 custom-primary"
+                  [disabled]="processando" fxFlex="30" (click)="voltar()">Voltar</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</app-pagina-generica>
