@@ -9,11 +9,11 @@ export class LoginService {
 
   constructor(public dialog: MatDialog) { }
 
-  public telaLogin(width?: string): void {
+  public telaLogin(width = 'auto', backdropClass = 'cdk-overlay-backdrop'): void {
     const dialogRef = this.dialog.open(LoginComponent,
-      { backdropClass: 'modalfundo-transparente',
+      { backdropClass: backdropClass,
               disableClose: true,
-              width: width = 'auto'});
+              width: width});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('dialog close');

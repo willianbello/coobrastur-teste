@@ -5,6 +5,7 @@ import {HttpClient, HttpEvent, HttpEventType} from "@angular/common/http";
 import {Endpoints} from "../../../shared/generico/Endpoints";
 import {LoginRegistro} from "../../../shared/models/LoginRegistro";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {StorageService} from "../../../shared/services/storage.service";
 
 @Component({
   selector: 'app-login',
@@ -17,31 +18,29 @@ export class LoginComponent extends FormularioGenericoService implements OnInit 
 
   constructor(
     httpCliente: HttpClient,
-    public dialogRef: MatDialogRef<LoginComponent>
+    public dialogRef: MatDialogRef<LoginComponent>,
+    private storageService: StorageService
   ) {
     super(httpCliente);
   }
 
   ngOnInit(): void {
+    this.loginRegistro.email = 'eve.holt@reqres.in';
+    this.loginRegistro.password = 'cityslickas';
   }
-
+  cityslicka
   onSubmit(form: NgForm) {
-    console.log(form.invalid);
     if (form.invalid) return;
 
     this.processando = true;
     this.post(Endpoints.getEndpointUsuarios().login, form.value)
-      .subscribe((httpEvent: HttpEvent<any>) => {
-        if (httpEvent.type === HttpEventType.Response && httpEvent.status === 200) {
-          this.processando = false;
-          // exibe mensagem de logado com sucesso
-        } else {
-          this.processando = false;
-          // exibe erro
-        }
+      .subscribe((response: any) => {
+        this.processando = false;
+        this.storageService.setTokenUsuario(response.token);
+
       }, error => {
         this.processando = false;
-        // exibe erro
+
       })
   }
 
