@@ -12,7 +12,6 @@ import { RegistroUsuarioComponent } from './componentes/usuario/registro-usuario
 import {LoginPageComponent} from "./componentes/login-page/login-page.component";
 import {LoginComponent} from "./componentes/shared/login/login.component";
 import { UsuarioCardComponent } from './componentes/usuario/usuario-card/usuario-card.component';
-import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -30,7 +29,6 @@ import {MatCardModule} from "@angular/material/card";
     BrowserAnimationsModule,
     MaterialModule,
     SharedModule,
-    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

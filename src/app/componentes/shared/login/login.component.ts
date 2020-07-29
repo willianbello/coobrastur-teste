@@ -1,10 +1,10 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {FormularioGenericoService} from "../../../shared/generico/FormularioGenericoService";
-import {HttpClient, HttpEvent, HttpEventType} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Endpoints} from "../../../shared/generico/Endpoints";
 import {LoginRegistro} from "../../../shared/models/LoginRegistro";
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {MatDialogRef} from "@angular/material/dialog";
 import {StorageService} from "../../../shared/services/storage.service";
 
 @Component({
@@ -28,7 +28,7 @@ export class LoginComponent extends FormularioGenericoService implements OnInit 
     this.loginRegistro.email = 'eve.holt@reqres.in';
     this.loginRegistro.password = 'cityslickas';
   }
-  cityslicka
+
   onSubmit(form: NgForm) {
     if (form.invalid) return;
 

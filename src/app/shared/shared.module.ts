@@ -8,7 +8,6 @@ import {CabecalhoComponent} from "../componentes/shared/cabecalho/cabecalho.comp
 import {PaginaGenericaComponent} from "../componentes/shared/pagina-generica/pagina-generica.component";
 import {MaterialModule} from "../material/material.module";
 import {TokenInterceptor} from "./services/token.interceptor";
-import {environment} from "../../environments/environment";
 
 
 @NgModule({
