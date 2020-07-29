@@ -20,6 +20,7 @@ export class ListaUsuariosComponent extends FormularioGenericoService implements
     this.parametrosGenericos.botaoAdicionar.botaoAdicionarVisibilidade = true;
     this.parametrosGenericos.botaoAdicionar.botaoAdicionarNome = 'NOVO CLIENTE';
     this.parametrosGenericos.botaoAdicionar.botaoAdicionarFuncao = ()=>{};
+    this.parametrosGenericos.cabecalho = true;
   }
 
   ngOnInit(): void {

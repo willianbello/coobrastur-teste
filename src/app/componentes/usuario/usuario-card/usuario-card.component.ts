@@ -13,8 +13,6 @@ export class UsuarioCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.usuario = new Usuario();
-    this.usuario.email = 'willianbello.s@gmail.com';
   }
 
 }

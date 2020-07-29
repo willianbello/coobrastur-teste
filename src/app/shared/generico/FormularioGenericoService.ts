@@ -1,6 +1,7 @@
 import {HttpClient} from "@angular/common/http";
 import {ParametrosGenericos} from "../models/ParametrosGenericos";
 import {isNotNullOrUndefined} from "codelyzer/util/isNotNullOrUndefined";
+import {environment} from "../../../environments/environment";
 
 export class FormularioGenericoService {
 
@@ -12,29 +13,33 @@ export class FormularioGenericoService {
     this.httpCliente = http;
   }
 
-  public post(objeto, endpoint) {
+  public login(endpoint, objeto: any) {
     if (isNotNullOrUndefined(objeto) && isNotNullOrUndefined(endpoint)) {
-      const teste = this.httpCliente.post(endpoint, objeto);
-      teste.subscribe(response => console.log(response));
-      return this.httpCliente.post(endpoint, objeto);
+      return this.httpCliente.post(`${environment.REQRES_API}/${endpoint}`, objeto);
+    }
+  }
+
+  public post(endpoint, objeto: any) {
+    if (isNotNullOrUndefined(objeto) && isNotNullOrUndefined(endpoint)) {
+      return this.httpCliente.post(`${environment.REQRES_API}/${endpoint}`, objeto);
     }
   }
 
   public get(endpoint) {
     if (isNotNullOrUndefined(endpoint)) {
-      return this.httpCliente.get(endpoint);
+      return this.httpCliente.get(`${environment.REQRES_API}/${endpoint}`);
     }
   }
 
-  public update(objeto, endpoint) {
+  public update(endpoint, objeto: any) {
     if (isNotNullOrUndefined(objeto) && isNotNullOrUndefined(endpoint)) {
-      return this.httpCliente.get(objeto, endpoint);
+      return this.httpCliente.put(`${environment.REQRES_API}/${endpoint}`, objeto);
     }
   }
 
   public delete(endpoint) {
     if (isNotNullOrUndefined(endpoint)) {
-      return this.httpCliente.get(endpoint);
+      return this.httpCliente.get(`${environment.REQRES_API}/${endpoint}`);
     }
   }
 

@@ -13,10 +13,12 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 })
 export class LoginComponent extends FormularioGenericoService implements OnInit {
 
-  login: LoginRegistro = new LoginRegistro();
+  loginRegistro: LoginRegistro = new LoginRegistro();
 
-  constructor(httpCliente: HttpClient,
-              public dialogRef: MatDialogRef<LoginComponent>) {
+  constructor(
+    httpCliente: HttpClient,
+    public dialogRef: MatDialogRef<LoginComponent>
+  ) {
     super(httpCliente);
   }
 
@@ -28,7 +30,7 @@ export class LoginComponent extends FormularioGenericoService implements OnInit 
     if (form.invalid) return;
 
     this.processando = true;
-    this.post(form.value, Endpoints.getEndpointUsuarios().post)
+    this.post(Endpoints.getEndpointUsuarios().login, form.value)
       .subscribe((httpEvent: HttpEvent<any>) => {
         if (httpEvent.type === HttpEventType.Response && httpEvent.status === 200) {
           this.processando = false;

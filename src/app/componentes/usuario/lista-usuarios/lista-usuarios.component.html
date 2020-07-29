@@ -1,5 +1,6 @@
 <app-pagina-generica [parametros]="parametrosGenericos">
   <div class="w-100">
-    <app-usuario-card></app-usuario-card>
+    <app-usuario-card *ngFor="let usuario of paginacao.data" [usuario]="usuario">
+    </app-usuario-card>
   </div>
 </app-pagina-generica>
