@@ -1,0 +1,16 @@
+<app-cabecalho></app-cabecalho>
+<div class="mt-70 container" fxLayoutGap="10%" fxLayout="row">
+  <div></div>
+  <div  class="w-100">
+    <h2 *ngIf="parametros.titulo" fxLayoutAlign="start center" class="mb-0">
+      <mat-icon *ngIf="parametros.icone" class="mr-25">{{ parametros.icone }}</mat-icon>
+      <span class="titulo fw-bold">{{ parametros.titulo }}</span></h2>
+    <hr class="hr mb-30">
+    <h3 *ngIf="parametros.subtitulo" class="subtitulo fw-bold">{{ parametros.subtitulo }}</h3>
+    <p *ngIf="parametros.descricao" class="descricao">{{ parametros.descricao }}</p>
+  </div>
+</div>
+<div class="mt-50 container" fxLayoutGap="10%" fxLayout="row">
+  <div></div>
+  <slot></slot>
+</div>

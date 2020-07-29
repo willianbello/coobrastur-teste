@@ -1,6 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 $fundo: #FFFFsFF;
+$tema: #08436F;
+$subtitulo: #4D4E59;
+$descricao: #666666;
+$hr: #E9E9E9;
+
+$lns-color-purple: #08436F;
+$lns-themeLight-color-primary: #08436F;
 
 html, body { height: 100%; width: 100%; background-color: $fundo }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; height: 100%; width: 100% }
@@ -12,26 +19,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; height: 100
 .modalfundo-transparente {
   background-color: rgba(205, 205, 205, 0.10);
   opacity: 1.0 !important;
-
 }
-
 .cdk-overlay-pane {
   width: 450px !important;
-
 }
-
 .mat-dialog-container {
   box-shadow: 0px 0px 1px black;
   border: none !important;
 }
-
 .mat-progress-bar {
   margin-left: -25px;
   width: 450px !important;
   margin-top: -25px;
   margin-bottom: 25px;
 }
-
+.mat-toolbar.mat-primary {
+  background-color: $tema;
+}
 .logo {
   height: 50px;
 }
@@ -48,4 +52,37 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; height: 100
 }
 .mr-50 {
   margin-right: 50px !important;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.mt-70 {
+  margin-top: 70px;
+}
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
+.container {
+  width: 70%;
+}
+.titulo {
+  color: $tema;
+}
+.subtitulo {
+  color: $subtitulo;
+}
+.descricao {
+  color: $descricao;
+}
+.fw-bold {
+  font-weight: bold !important;
+}
+.fw-500 {
+  font-weight: 500 !important;
+}
+.hr {
+  border: 1px solid $hr !important;
 }

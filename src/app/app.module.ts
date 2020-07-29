@@ -9,6 +9,7 @@ import {SharedModule} from "./shared/shared.module";
 import { LoginPageComponent } from './componentes/login-page/login-page.component';
 import { LoginComponent } from './componentes/shared/login/login.component';
 import { CabecalhoComponent } from './componentes/shared/cabecalho/cabecalho.component';
+import { PaginaGenericaComponent } from './componentes/shared/pagina-generica/pagina-generica.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CabecalhoComponent } from './componentes/shared/cabecalho/cabecalho.com
     AppComponent,
     LoginPageComponent,
     LoginComponent,
-    CabecalhoComponent
+    CabecalhoComponent,
+    PaginaGenericaComponent
   ],
   imports: [
     BrowserModule,
