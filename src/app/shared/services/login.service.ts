@@ -15,8 +15,5 @@ export class LoginService {
               disableClose: true,
               width: width});
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('dialog close');
-    });
   }
 }

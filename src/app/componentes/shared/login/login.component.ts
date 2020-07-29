@@ -37,7 +37,8 @@ export class LoginComponent extends FormularioGenericoService implements OnInit 
       .subscribe((response: any) => {
         this.processando = false;
         this.storageService.setTokenUsuario(response.token);
-
+        this.dialogRef.close();
+        window.location.reload();
       }, error => {
         this.processando = false;
 
